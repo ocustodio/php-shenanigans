@@ -52,21 +52,21 @@
             ],
         ];
 
-        $filterByName = function (array $listOfNames, string $name) {
-            $filteredBooks = [];
+        function filter(array $arrayData, $fn, ) {
+            $filteredData = [];
 
-            foreach($listOfNames as $names) {
-                if (strtolower($names["name"]) == $name) {
-                    $filteredBooks[] = $names;
+            foreach($arrayData as $data) {
+                if ($fn($data)) {
+                    $filteredData[] = $data;
                 }
-                
-                
             }
 
-            return $filteredBooks;
-        };
+            return $filteredData;
+        }
 
-        $filteredBooks = $filterByName($listOfNames, "vito");
+        $filteredBooks = filter($listOfNames, function ($data) {
+            return $data["age"] >= 20;
+        });
     ?>
 
     <h1>
