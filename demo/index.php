@@ -30,35 +30,61 @@
                 "id" => 1,
                 "name" => "Vito",
                 "lastName" => "Custodio",
+                "age" => 25, 
             ],
             [
                 "id" => 2,
-                "name" => "Joao",
+                "name" => "Marco",
                 "lastName" => "Leonardo",
+                "age" => 25,
             ],
             [
                 "id" => 3,
                 "name" => "Marco",
                 "lastName" => "Polo",
+                "age" => 22,
+            ],
+            [
+                "id" => 4,
+                "name" => "John",
+                "lastName" => "Doe",
+                "age" => 17,
             ],
         ];
+
+        $filterByName = function (array $listOfNames, string $name) {
+            $filteredBooks = [];
+
+            foreach($listOfNames as $names) {
+                if (strtolower($names["name"]) == $name) {
+                    $filteredBooks[] = $names;
+                }
+                
+                
+            }
+
+            return $filteredBooks;
+        };
+
+        $filteredBooks = $filterByName($listOfNames, "vito");
     ?>
 
-    <h1> 
+    <h1>
         Hello, <?= $message ?>
     </h1>
 
     <ul>
-        <?php foreach($listOfNames as $names) : ?>
-            <li>
-                <?= $names["id"] ?> |
-                <?= "{$names["name"]}  {$names["lastName"]}" ?>
-            </li>
+        <?php foreach($filteredBooks as $names) : ?>
+                    <li>
+                        [<?= $names["id"] ?>]
+                        <?= "{$names["name"]}  {$names["lastName"]}" ?>,
+                        <?= $names["age"] ?>
+                    </li>
         <?php endforeach; ?>
     </ul>
 
     <p>
-        <?= "1st /> " . $listOfNames[0] ?>
+        <?= "1st name /> " . $listOfNames[0]["name"] ?>
     </p>
 </body>
 </html>
