@@ -26,4 +26,52 @@ VALUES
 ('Jones Doe', 1);
 
 --@block
+DROP TABLE Notes;
+
+--@block
+CREATE TABLE Notes (
+    id INT AUTO_INCREMENT,
+    body TEXT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) 
+    REFERENCES Users(id)
+    ON DELETE CASCADE
+);
+
+-- @block
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE (email)
+);
+
+-- @block
+INSERT INTO Users (name, email)
+VALUES
+('Vito2', 'vit2o@gmail.com');
+
+
+-- @block
 SELECT * FROM Users;
+
+-- @block
+INSERT INTO Notes (body, user_id)
+VALUES
+("PHP issss the best!!!", 3),
+("PHPddd", 3),
+("is thessq best!!!", 3);
+
+-- @block
+SELECT * FROM Notes;
+
+-- @block 
+SELECT * FROM Notes WHERE user_id = 1;
+
+-- @block
+INSERT INTO Notes (body, user_id)
+VALUES
+
+("test!!!", 2);
