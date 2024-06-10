@@ -47,3 +47,21 @@ SELECT
 FROM Users
 LEFT JOIN Rooms
 ON Rooms.owner_id = Users.id;
+
+-- @block
+CREATE TABLE Bookings (
+    id INT AUTO_INCREMENT,
+    guest_id INT NOT NULL,
+    room_id INT NOT NULL,
+    check_in DATETIME,
+    PRIMARY KEY (id),
+    FOREIGN KEY (guest_id) REFERENCES Users(id),
+    FOREIGN KEY (room_id) REFERENCES Rooms(id)
+);
+
+-- @block
+INSERT INTO Posts (title)
+VALUES
+('first blog post'),
+('second blog post')
+;

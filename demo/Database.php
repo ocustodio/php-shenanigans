@@ -13,9 +13,9 @@ class Database {
         ]);
     }
 
-    public function executeQuery (string $query): PDOStatement {
+    public function executeQuery (string $query, array $params = []): PDOStatement {
         $statement = $this -> connection -> prepare($query);
-        $statement -> execute();
+        $statement -> execute($params);
 
         return $statement;
     }

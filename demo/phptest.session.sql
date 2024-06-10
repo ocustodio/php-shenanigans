@@ -5,5 +5,25 @@ VALUES
 ('second blog post')
 ;
 
+
+
 -- @block
-SELECT id AS user_id, title FROM Posts WHERE id = 1;
+SELECT * FROM Posts WHERE id = 1 OR id = 2;
+
+-- @block
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    admin TINYINT(2) NOT NULL DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
+--@block
+INSERT INTO Users (username, admin)
+VALUES 
+('John Doe', 1),
+('Jona Doe', 0),
+('Jones Doe', 1);
+
+--@block
+SELECT * FROM Users;
