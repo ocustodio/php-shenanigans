@@ -1,5 +1,10 @@
 <?php
 
+use Core\Response;
+use Core\Router;
+
+
+
 function dnd($value) {
     echo "<pre>";
     var_dump($value);
@@ -11,6 +16,14 @@ function dnd($value) {
 function urlPath($path) {
     return $_SERVER["REQUEST_URI"] === $path;
 };
+
+function abort($statusCode = Response::NOT_FOUND) {
+    http_response_code($statusCode);
+    
+    require base_path("views/$statusCode.php");
+
+    die();
+}
 
 function authorize($condition, $status = Response::FORBIDDEN) {
     if (!$condition) {

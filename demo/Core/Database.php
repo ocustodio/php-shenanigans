@@ -2,6 +2,9 @@
 
 // connect to MySQL database.
 
+namespace Core;
+use PDO;
+
 class Database {
     private $connection;
     private $statement;

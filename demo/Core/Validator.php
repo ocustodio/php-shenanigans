@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class Validator {
     public static function isEmtpy($value) {
         return strlen(trim($value)) === 0;
