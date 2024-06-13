@@ -1,14 +1,17 @@
 <?php
 
-$config = require('config.php');
+$config = require base_path('config.php');
 
 $db = new Database($config['database'], 'root' ,'root');
 
-$heading = "Note Title";
 $currentUserId = 2;
 
 $note = $db -> executeQuery('select * from Notes where id = :id', ['id' => $_GET['id']]) -> findOrFail();
 
 authorize($note['user_id'] === $currentUserId);
 
-require "views/note.view.php";
+
+view("/notes/show.view.php", [
+    "heading" => "Note Title",
+    "note" => $note,
+]);
