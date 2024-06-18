@@ -43,7 +43,7 @@ class Router {
         $this -> abort();
     }
 
-    public function abort($statusCode = Response::NOT_FOUND) {
+    protected function abort($statusCode = Response::NOT_FOUND) {
         http_response_code($statusCode);
         
         require base_path("views/$statusCode.php");
