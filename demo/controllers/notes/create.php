@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $db -> executeQuery("insert into Notes(body, user_id) values (:body, :user_id)", [
             'body' => $_POST['body'],
-            'user_id' => 2
+            'user_id' => 1
         ]);
     }
 }

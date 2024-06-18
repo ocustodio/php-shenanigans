@@ -6,7 +6,7 @@ $config = require base_path('config.php');
 
 $db = new Database($config['database'], 'root' ,'root');
 
-$currentUserId = 2;
+$currentUserId = 1;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $note = $db -> executeQuery('select * from Notes where id = :id', ['id' => $_GET['id']]) -> findOrFail();
