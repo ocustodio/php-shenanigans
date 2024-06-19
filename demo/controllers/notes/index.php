@@ -11,3 +11,4 @@ view("notes/index.view.php", [
     "heading" => "Notes",
     "notes" => $notes,
 ]);
+
