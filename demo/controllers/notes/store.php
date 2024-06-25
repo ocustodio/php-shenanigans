@@ -9,6 +9,7 @@ $db = App::resolve(Database::class);
 $errors = [];
 $postBody = $_POST['body'];
 $maxChars = 1000;
+$currentUserId = 1;
 
 if (Validator::isEmtpy($postBody)) {
     $errors['body'] = 'A body is required.';
@@ -34,4 +35,3 @@ if (empty($errors)) {
 
 header('location: /notes');
 die();
-
