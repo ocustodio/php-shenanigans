@@ -33,9 +33,17 @@
                         <span class="sr-only">Open user menu</span>
                         <?php if($_SESSION['user'] ?? false): ?>
                             <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                            <form method="POST" action="/session">
+                                <input type="hidden" name="__method"
+                                       value="DELETE" />
+
+                                <button class="text-white">Log Out</button>
+                            </form>
                         <?php else : ?>
-                            <a class="text-white" href="/register"> Register
-                            </a>
+                            <a href="/register" class="<?= urlPath("/register") ?
+                                "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> rounded-md px-3 py-2 text-sm font-medium">Register</a>
+                            <a href="/login" class="<?= urlPath("/login") ?
+                                "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> rounded-md px-3 py-2 text-sm font-medium">Login</a>
                         <?php endif; ?>
                     </button>
                 </div>

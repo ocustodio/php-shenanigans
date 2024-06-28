@@ -11,7 +11,8 @@ class Validator {
         return strlen($value) > $numChars;
     }
 
-    public static function passwordLength($value, $minChars, $maxChars) {
+    public static function passwordLength($value, $minChars = 1, $maxChars =
+    INF) {
         return strlen($value) >= $minChars && strlen($value) <= $maxChars;
     }
 

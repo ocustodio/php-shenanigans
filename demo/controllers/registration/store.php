@@ -36,15 +36,14 @@ if ($user) {
 if (!$user) {
     $db -> executeQuery('insert into Users (email, password) values (:email, :password)', [
         'email' => $email,
-        'password' => $password,
+        'password' => password_hash($password, PASSWORD_BCRYPT),
     ]);
 
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
+    login([
+        'email' => $email,
+    ]);
 
     header('location: /');
 
     exit();
 }
-
