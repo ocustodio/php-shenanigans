@@ -16,7 +16,7 @@ class Validator {
         return strlen($value) >= $minChars && strlen($value) <= $maxChars;
     }
 
-    public static function email($value) {
+    public static function email(string $value): bool {
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 

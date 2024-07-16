@@ -1,0 +1,26 @@
+{
+    "name": "vito/demo",
+    "authors": [
+        {
+            "name": "ocustodio",
+            "email": "cstdpvictor@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^11.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.34"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
